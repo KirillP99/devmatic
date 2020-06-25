@@ -15,25 +15,6 @@ export const shuffle = (array) => {
   return array;
 };
 
-export const getRandomCards = (array, countOfPlayers) => {
-  let sortedArr = array;
-  let resultArray = [];
-  let randomIndex;
-
-  for (let i = sortedArr.length - 1; i >= 0; i -= 1) {
-    randomIndex = Math.floor(Math.random() * i);
-    const findItem = sortedArr[randomIndex];
-    resultArray = [...resultArray, findItem];
-    sortedArr = [...sortedArr.slice(0, randomIndex), ...sortedArr.slice(randomIndex + 1)];
-
-    if (resultArray.length === countOfPlayers * 2) {
-      break;
-    }
-  }
-
-  return resultArray;
-};
-
 export const generateCards = () => {
   let newArr = [];
 

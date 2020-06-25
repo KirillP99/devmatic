@@ -3,8 +3,26 @@ import {
 } from 'redux-saga/effects';
 import { getCurrentPairsSuccess } from '../../actions/currentPairs';
 import { getAllPairsSuccess } from '../../actions/allPairs';
-import { getRandomCards } from '../../utils';
 import * as actionTypes from '../../actions/actionTypes';
+
+export const getRandomCards = (array, countOfPlayers) => {
+  let sortedArr = array;
+  let resultArray = [];
+  let randomIndex;
+
+  for (let i = sortedArr.length - 1; i >= 0; i -= 1) {
+    randomIndex = Math.floor(Math.random() * i);
+    const findItem = sortedArr[randomIndex];
+    resultArray = [...resultArray, findItem];
+    sortedArr = [...sortedArr.slice(0, randomIndex), ...sortedArr.slice(randomIndex + 1)];
+
+    if (resultArray.length === countOfPlayers * 2) {
+      break;
+    }
+  }
+
+  return resultArray;
+};
 
 const sortPairsForPlayers = (pairs) => {
   let arrayForPlayers = [];

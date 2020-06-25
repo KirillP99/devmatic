@@ -8,41 +8,8 @@ import Loader from '../../UI-Kit/Loader/Loader';
 import Card from '../../UI-Kit/Card/Card';
 import { sortCards } from '../../actions/cards';
 import { getCurrentPairs } from '../../actions/currentPairs';
-import { definiteMaxValue, checkOnSimilarItems } from '../../utils';
-import { cardValues } from '../../constans';
+import { definiteOfWinner } from '../../utils';
 import styles from './Main.module.scss';
-
-const definiteOfWinner = (pairs) => {
-  const resultPairs = pairs.map((item, index) => {
-    if (item.valueCardOne.value === item.valueCardTwo.value) {
-      return {
-        value: item.valueCardOne.value,
-        valueIndex: cardValues.findIndex((value) => item.valueCardOne.value === value),
-        index,
-      };
-    }
-  }).filter((item) => item);
-
-  if (resultPairs.length === 1) {
-    return {
-      result: `Player ${resultPairs[0].index + 1} is win`,
-      index: resultPairs[0].index,
-    };
-  }
-  if (!resultPairs.length || checkOnSimilarItems(resultPairs.map((item) => item.value))) {
-    return {
-      result: 'draw',
-      index: -1,
-    };
-  }
-
-  const maxValue = definiteMaxValue(resultPairs.map((item) => item.valueIndex));
-  const maxItem = resultPairs.find((item) => item.valueIndex === maxValue);
-  return {
-    result: `Player ${maxItem.index + 1} is win`,
-    index: maxItem.index,
-  };
-};
 
 const Main = () => {
   const [shouldShowCards, setShouldShowCards] = useState(false);

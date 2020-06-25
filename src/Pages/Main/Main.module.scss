@@ -1,0 +1,79 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.container {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cardsImage {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 200px;
+  height: 200px;
+}
+
+.buttons {
+  position: fixed;
+  top: 47px;
+  left: 30px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.shakeButtonWrapper {
+  width: 100%;
+  position: relative;
+
+  & button {
+    width: 100%;
+  }
+}
+
+.loader {
+  position: absolute;
+  top: -15px;
+}
+
+.shakerIndicator {
+  @include styleForText($fontSizeContent, $fontMain, white);
+
+  text-transform: uppercase;
+  position: absolute;
+  top: 18px;
+  right: -81px;
+}
+
+.result {
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: white;
+  font-size: 24px;
+}
+
+.cardGroup {
+  position: absolute;
+  right: 30px;
+  display: none;
+  padding: 15px;
+}
+
+.playerText {
+  position: absolute;
+  left: -78px;
+  top: 13px;
+  color: white;
+}
+
+.cardGroupBlock {
+  right: 50%;
+  display: flex;
+  margin-right: -130.5px;
+}
+
+.winner {
+  background-color: white;
+}

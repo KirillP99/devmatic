@@ -1,0 +1,37 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.wrapper {
+  position: relative;
+  width: 123px;
+  height: 157px;
+  border: 1px solid $colorContent;
+  background-color: white;
+  border-radius: 5px;
+
+  &:last-child {
+    margin-left: 15px;
+  }
+}
+
+.image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+}
+
+.topValue {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.bottomValue {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

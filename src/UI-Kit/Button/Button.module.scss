@@ -1,0 +1,17 @@
+@import "src/styles/core/vars";
+@import "src/styles/core/mixins";
+
+.button {
+  @include styleForText();
+
+  border-radius: 8px;
+  padding: 17px 0 16px;
+  border: 1px solid $colorContent;
+  transition: .3s;
+  background-color: white;
+
+  &:hover {
+    background-color: $colorContent;
+    color: white;
+  }
+}
